@@ -1,0 +1,269 @@
+body { font-family: 'Inter', sans-serif; }
+        /* Genel kutu ve gölge stili */
+        .card {
+            background-color: #1F2937; /* gray-800'den daha koyu */
+            border: 1px solid #374151; /* gray-700 daha belirgin kenar */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Daha belirgin gölge */
+            border-radius: 4px; /* Hafif yuvarlatma, keskinliği koruyarak */
+        }
+        /* Player list item'lar için özel stil */
+        .player-list-item {
+            background-color: #2D3748; /* gray-800'e yakın */
+            border: 1px solid #4A5568; /* gray-700 hafif kenar */
+            margin-bottom: 8px;
+            border-radius: 2px; /* Daha keskin köşeler */
+            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+        }
+        .player-list-item:hover {
+            background-color: #374151; /* gray-700'e yakın */
+            transform: translateY(-1px); /* Hafif yukarı kalkma efekti */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .player-list-item.selected {
+            background-color: #047857; /* Emerald'ın biraz daha koyusu, teal-500'den belirgin */
+            color: white;
+            font-weight: bold;
+            border-color: #059669; /* Seçili rengin koyu tonu */
+        }
+        .player-list-item.selected p {
+            color: white;
+        }
+        /* Action grupları için belirgin ayrım */
+        .action-group {
+            border-bottom: 1px solid #374151; /* gray-700 ile belirgin çizgi */
+            padding-bottom: 1.5rem; /* Daha fazla boşluk */
+            margin-bottom: 1.5rem; /* Daha fazla boşluk */
+        }
+        .action-group:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        .input-group {
+            display: flex;
+            gap: 0.75rem; /* Biraz daha geniş boşluk */
+            margin-top: 0.75rem;
+        }
+        .input-group input[type="text"],
+        .input-group input[type="number"],
+        .input-group textarea { /* textarea'yı da ekledim */
+            flex-grow: 1;
+            background-color: #1A202C; /* gray-900 */
+            border: 1px solid #4A5568; /* gray-700 */
+            color: white;
+            padding: 0.75rem; /* Padding artırıldı */
+            border-radius: 4px; /* Keskin köşeler */
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .input-group input:focus,
+        .input-group textarea:focus {
+            border-color: #3B82F6; /* blue-500 odak rengi */
+            box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.5); /* Hafif odak gölgesi */
+            outline: none;
+        }
+        .input-group button {
+            flex-shrink: 0;
+            padding: 0.75rem 1.25rem; /* Padding artırıldı */
+            border-radius: 4px; /* Keskin köşeler */
+            font-weight: 600; /* font-semibold */
+            transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+        }
+        
+        /* Sidebar ve Content Stilleri */
+        .sidebar {
+            width: 250px; /* Sidebar genişliği */
+            background-color: #1F2937; /* Sidebar arka planı */
+            padding: 1.5rem;
+            border-right: 1px solid #374151; /* Sağ kenarlık */
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3); /* Gölgelendirme */
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+        .sidebar-nav-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            color: #CBD5E0; /* Açık gri metin */
+            border-radius: 4px;
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .sidebar-nav-item:hover {
+            background-color: #2D3748; /* Üzerine gelince biraz koyu */
+            color: #E2E8F0;
+        }
+        .sidebar-nav-item.active {
+            background-color: #047857; /* Emerald koyu */
+            color: white;
+            font-weight: 700;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 1.5rem;
+            background-color: #1A202C; /* Ana içerik alanı arka planı */
+        }
+        .content-section {
+            display: none; /* Başlangıçta gizli */
+        }
+        .content-section.active {
+            display: block; /* Aktif olduğunda görünür */
+        }
+        /* Modal stilini de güncelleyelim */
+        .rejection-modal-content {
+            background-color: #1F2937; /* gray-800'den daha koyu */
+            border: 1px solid #374151;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            border-radius: 4px;
+            padding: 24px;
+            width: 90%;
+            max-width: 500px;
+        }
+        .rejection-modal-content h2 {
+            color: #E2E8F0; /* light gray */
+            margin-bottom: 16px;
+        }
+        .rejection-modal-content label {
+            color: #A0AEC0; /* medium gray */
+        }
+
+        /* Başvuru kartları için renk kodlaması */
+        .application-card.status-Beklemede { border-color: #FBBF24; } /* Amber-400 */
+        .application-card.status-Onaylandı { border-color: #34D399; } /* Emerald-400 */
+        .application-card.status-Reddedildi { border-color: #F87171; } /* Red-400 */
+        .application-card .status-badge-Beklemede { background-color: #FBBF24; color: #78350F; }
+        .application-card .status-badge-Onaylandı { background-color: #34D399; color: #065F46; }
+        .application-card .status-badge-Reddedildi { background-color: #F87171; color: #7F1D1D; }
+
+        /* Responsive Sidebar Styles (Admin Panel Specific) */
+        .mobile-menu-button {
+            display: none; /* Masaüstünde gizle */
+            position: fixed;
+            top: 1.5rem;
+            left: 1.5rem;
+            z-index: 50; 
+            background-color: #047857; /* Emerald-600 */
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        .sidebar-overlay {
+            display: none; /* Varsayılan olarak gizli */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 20; /* Sidebar'ın altında, diğer elementlerin üstünde */
+            transition: opacity 0.3s ease-in-out;
+            opacity: 0;
+        }
+        .sidebar-overlay.visible {
+            display: block; /* Açık olduğunda görünür */
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-button {
+                display: block; /* Mobil cihazlarda görünür yap */
+            }
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: -250px; /* Sidebar genişliği kadar ekran dışına */
+                height: 100%;
+                transition: left 0.3s ease-in-out;
+                z-index: 30; /* overlay'in üstünde */
+                border-right: none;
+                box-shadow: 2px 0 15px rgba(0, 0, 0, 0.6); /* Açılınca gölge */
+            }
+            .sidebar.open {
+                left: 0; /* Açıldığında ekran içine gelsin */
+            }
+            /* Ana içerik, sidebar açılınca sağa kaymasın, üzerine gelsin */
+            .main-content {
+                margin-left: 0; 
+            }
+        }
+
+
+        /* fivempanel/public/style.css */
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+/* Veya */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* Mevcut CSS kodlarınızın üstüne ekleyin */
+
+/* Genel Tema Ayarları */
+body {
+    background-color: #1a1a1a; /* Koyu Gri/Siyah Arka Plan */
+    color: #ffffff; /* Beyaz Yazı */
+    font-family: 'Montserrat', sans-serif; /* Yeni fontu uygula */
+    /* Veya: font-family: 'Poppins', sans-serif; */
+}
+
+/* Tüm butonlar ve linkler için genel yazı rengi */
+a, button {
+    color: #ffffff;
+}
+
+/* Border renkleri (varsa) */
+/* Eğer border'lar belirli elementlerde tanımlıysa, onları da beyaz yapın */
+.some-element-with-border {
+    border-color: #ffffff;
+}
+
+
+
+/* Butonlara Uygulama */
+.menudeki-buton, .admin-panel-butonu { /* Bu sınıfları kendi buton sınıflarınla değiştir dayıoğlu */
+    position: relative; /* Shake için gerekli */
+    overflow: hidden; /* RGB kenar geçişini gizlemek için */
+    background-color: transparent; /* Varsayılan arkaplanı şeffaf yap */
+    border: 2px solid #ffffff; /* Beyaz border */
+    color: #ffffff; /* Beyaz yazı */
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Hover geçişleri için */
+    z-index: 1; /* Sahte RGB border'ın arkasında kalması için */
+}
+
+
+/* Eğer link olarak kullanılıyorsa */
+nav a { /* Navigasyon menüsündeki linkler için örnek */
+    display: block; /* Tam alanı kaplaması için */
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    z-index: 1;
+    margin: 5px 0; /* Butonlar arası boşluk */
+}
+/* fivempanel/public/style.css (Responsive menü kısmı) */
+
+@media (max-width: 768px) { /* Örneğin 768px altında mobil görünüm aktifse */
+    .responsive-menu-kapsayici { /* Bu sınıfı senin açılan menü div'inin sınıfıyla değiştir */
+        max-height: calc(100vh - 60px); /* Ekran yüksekliğinden üst barın yüksekliğini çıkar */
+        overflow-y: auto; /* Dikeyde taşma olduğunda kaydırma çubuğu çıksın */
+        -webkit-overflow-scrolling: touch; /* iOS için daha yumuşak kaydırma */
+    }
+
+    /* Menü öğeleri eğer satır içi (inline) ise blok yap */
+    .responsive-menu-kapsayici li, .responsive-menu-kapsayici a {
+        display: block;
+        width: 100%;
+        box-sizing: border-box; /* Padding'in genişliği etkilememesi için */
+    }
+}

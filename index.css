@@ -1,0 +1,66 @@
+/* Custom CSS - style.css */
+
+/* Genel mor tonları */
+:root {
+    --primary-purple: #6A0DAD; /* Koyu Mor */
+    --secondary-purple: #8A2BE2; /* Mavi Mor */
+    --accent-purple: #9370DB; /* Orta Mor */
+    --light-purple: #DDA0DD; /* Açık Mor */
+}
+
+/* Tailwind ile çakışmayacak özel geçişler */
+.transition-opacity {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.transition-transform {
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hero Section Arkaplanı daha iyi görünsün diye */
+.bg-cover {
+    background-size: cover;
+}
+
+.bg-center {
+    background-position: center;
+}
+
+/* Slider için özel stil */
+.slider-container {
+    max-width: 1200px; /* Max genişlik */
+    margin: 0 auto;
+}
+
+.slider-wrapper {
+    display: flex;
+    /* Kaydırma efektini daha yumuşak yapmak için */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* iOS için smooth scroll */
+}
+
+/* Mobil için slider'da sadece bir öğe görünsün */
+@media (max-width: 767px) {
+    .slider-wrapper > div {
+        min-width: 100%; /* Mobil görünümde her bir slayt tam genişlikte olsun */
+    }
+}
+
+/* Tablet ve daha büyük ekranlar için slider'da iki/üç öğe */
+@media (min-width: 768px) {
+    .slider-wrapper > div {
+        min-width: calc(50% - 1rem); /* 2 sütun (gap için 1rem çıkar) */
+    }
+}
+
+@media (min-width: 1024px) {
+    .slider-wrapper > div {
+        min-width: calc(33.333% - 1.333rem); /* 3 sütun (gap için ayarla) */
+    }
+}
+
+/* Slider navigasyon butonları */
+.slider-prev, .slider-next {
+    cursor: pointer;
+    user-select: none;
+}

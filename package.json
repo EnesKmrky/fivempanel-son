@@ -1,0 +1,25 @@
+{
+  "name": "fivem-panel-api",
+  "version": "1.0.0",
+  "description": "FiveM anlık oyuncu çeken basit panel",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "fivem",
+    "api",
+    "panel"
+  ],
+  "author": "Enes",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "discord.js": "^14.21.0",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "node-fetch": "^3.3.2"
+  }
+}
